@@ -9,7 +9,7 @@ screen.title("CatchTheTurtle")
 
 turtle.mode("logo")
 
-
+turtle.tracer(0)
 my_turtle = turtle.Turtle()
 my_turtle.hideturtle()
 my_turtle.shape("turtle")
@@ -57,13 +57,18 @@ def move_turtle(x, y):
     my_turtle.goto(x, y)
 
 
-position_list = [(-60, 0), (-120, 0), (-60, -60), (-60, -120), (-120, -120), (0, 0), (60, 0), (120, 0), (60, 60), (60, 120), (120, 120)]
+turtle.tracer(1)
+
+x_positions = [-120, -60, 0, 60, 120]
+y_positions = [-120, -60, 0, 60, 120]
 
 
 while timer >= 0:
 
-    random_number = random.randint(0, len(position_list)-1)
-    random_x, random_y = position_list[random_number]
+    random_number_x = random.randint(0, len(x_positions)-1)
+    random_number_y = random.randint(0, len(y_positions)-1)
+    random_x = x_positions[random_number_x]
+    random_y = y_positions[random_number_y]
     move_turtle(random_x, random_y)
 
     my_turtle.showturtle()
